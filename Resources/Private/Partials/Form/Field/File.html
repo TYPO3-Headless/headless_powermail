@@ -1,6 +1,9 @@
 {namespace vh=In2code\Powermail\ViewHelpers}
 <f:spaceless>
-    <f:variable name="fieldMarker" value="{field.marker}{f:if(condition:field.multiselect,then:'.')}" />
+    <f:comment>Inspired by EXT:powermail's MultiUploadViewHelper</f:comment>
+    <f:for each="{0:'name',1:'type',2:'tmp_name',3:'error',4:'size'}" as="subproperty">
+        <headlesspowermail:form.registerField property="{field.marker}.{subproperty}." />
+    </f:for>
     <f:format.raw>
         <f:format.json value="{
             field: {
@@ -12,11 +15,10 @@
                 fieldWrappingClasses: settings.styles.framework.fieldWrappingClasses,
                 fieldClasses: settings.styles.framework.fieldClasses,
                 offsetClasses: settings.styles.framework.offsetClasses,
-                name: '{headlesspowermail:form.generateName(property:fieldMarker)}',
+                name: '{headlesspowermail:form.generateName(property:\'{field.marker}.\')}',
                 additionalAttributes: '{vh:validation.uploadAttributes(field:field)}',
-                errorClass: '{vh:validation.errorClass(field:field, class: \'powermail_field_error\')}',
-                additionalGeneratedAttributes: '{headlesspowermail:form.multiUpload(property:field.marker,additionalAttributes:\'{vh:validation.uploadAttributes(field:field)}\') -> headless:format.json.decode()}'
+                errorClass: '{vh:validation.errorClass(field:field, class: \'powermail_field_error\')}'
             }
-        }"/>
+        }" />
     </f:format.raw>
 </f:spaceless>
