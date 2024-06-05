@@ -1,0 +1,35 @@
+{namespace vh=In2code\Powermail\ViewHelpers}
+
+<f:spaceless>
+<f:if condition="{vh:validation.isHonepodEnabled()}">
+    <headlesspowermail:form.registerField property="__hp"/>
+    <f:format.raw>
+        <f:format.json value="{
+            type: 'invisible',
+            fields: '{f:render(section:\'hpFields\',arguments:\'{_all}\') -> headless:format.json.decode()}'
+        }" />
+    </f:format.raw>,
+</f:if>
+</f:spaceless>
+
+<f:section name="hpFields">
+<f:format.raw>
+    [
+        <f:format.json value="{
+            field: {
+                label: {
+                    title: '{f:translate(key:\'honeypodLabel\',extensionName:\'powermail\')}',
+                    labelClasses: 'powermail_label',
+                },
+                name: '{headlesspowermail:form.generateName(property:\'__hp\')}',
+                fieldWrappingClasses: 'powermail_field',
+                fieldAndLabelWrappingClasses: '',
+                type: 'text',
+                value: '',
+                additionalAttributes: '{autocomplete: \'new-powermail-hp-{form.uid}\', aria-hidden: \'true\'}',
+                id: 'powermail_hp_{form.uid}'
+            }
+        }" />
+    ]
+</f:format.raw>
+</f:section>
