@@ -14,6 +14,7 @@ class SelectFieldViewHelper extends Powermail_SelectFieldViewHelper
      * @return string rendered tag.
      * @api
      */
+    #[\Override]
     public function render()
     {
         $this->originalOptions = $this->arguments['options'];
@@ -22,6 +23,7 @@ class SelectFieldViewHelper extends Powermail_SelectFieldViewHelper
         return $this->renderOptionTags($options);
     }
 
+    #[\Override]
     protected function renderOptionTags(array $options): string
     {
         $optionTags = [];
@@ -40,6 +42,7 @@ class SelectFieldViewHelper extends Powermail_SelectFieldViewHelper
      * @param bool $isSelected specifies wether or not to add selected attribute
      * @return string the rendered option tag
      */
+    #[\Override]
     protected function renderOptionTag($value, $label, $isSelected = false): string
     {
         return json_encode([

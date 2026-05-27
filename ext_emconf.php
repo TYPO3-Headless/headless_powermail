@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Headless Powermail',
     'description' => 'This extension provides way to output content from TYPO3 in JSON format.',

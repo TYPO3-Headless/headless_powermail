@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace FriendsOfTYPO3\HeadlessPowermail\Finisher;
 
 use In2code\Powermail\Domain\Service\RedirectUriService;
-use In2code\Powermail\Utility\FrontendUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class RedirectFinisher extends \In2code\Powermail\Finisher\RedirectFinisher
@@ -14,6 +13,7 @@ class RedirectFinisher extends \In2code\Powermail\Finisher\RedirectFinisher
      *
      * @return void
      */
+    #[\Override]
     public function redirectToUriFinisher(): void
     {
         $redirectService = GeneralUtility::makeInstance(RedirectUriService::class, $this->contentObject);
