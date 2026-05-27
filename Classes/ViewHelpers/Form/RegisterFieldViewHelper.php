@@ -1,8 +1,10 @@
 <?php
+
+declare(strict_types=1);
+
 namespace FriendsOfTYPO3\HeadlessPowermail\ViewHelpers\Form;
 
 use TYPO3\CMS\Fluid\ViewHelpers\Form\AbstractFormFieldViewHelper;
-use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
 /*
  * This file is part of the TYPO3 CMS project.
  *
@@ -20,6 +22,7 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
  */
 class RegisterFieldViewHelper extends AbstractFormFieldViewHelper
 {
+    #[\Override]
     public function render(): string
     {
         $nameAttribute = $this->getName();

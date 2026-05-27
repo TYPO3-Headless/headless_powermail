@@ -14,6 +14,7 @@ class CountriesViewHelper extends Powermail_CountriesViewHelper
      * @return array
      * @throws PropertyNotAccessibleException
      */
+    #[\Override]
     public function render(): array
     {
         $countries = [];

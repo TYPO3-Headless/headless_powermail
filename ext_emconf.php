@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Headless Powermail',
     'description' => 'This extension provides way to output content from TYPO3 in JSON format.',
@@ -7,11 +9,11 @@ $EM_CONF[$_EXTKEY] = [
     'author' => 'Oskar Dydo',
     'author_email' => 'extensions@macopedia.pl',
     'category' => 'fe',
-    'version' => '3.0.0',
+    'version' => '4.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '12.4.0-12.4.99',
-            'powermail' => '12.0.0-12.99.99',
+            'typo3' => '13.4.0-13.4.99',
+            'powermail' => '13.0.0-13.99.99',
         ],
         'conflicts' => [],
         'suggests' => [],

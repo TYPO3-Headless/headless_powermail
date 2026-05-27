@@ -1,8 +1,10 @@
 <?php
+
+declare(strict_types=1);
+
 namespace FriendsOfTYPO3\HeadlessPowermail\ViewHelpers\Form;
 
 use TYPO3\CMS\Fluid\ViewHelpers\Form\AbstractFormFieldViewHelper;
-use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
 /*
  * This file is part of the TYPO3 CMS project.
  *
@@ -31,6 +33,7 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
  */
 class GenerateNameViewHelper extends AbstractFormFieldViewHelper
 {
+    #[\Override]
     public function initializeArguments(): void
     {
         $this->registerArgument(
@@ -41,6 +44,7 @@ class GenerateNameViewHelper extends AbstractFormFieldViewHelper
         $this->registerArgument('name', 'string', 'Name of input tag');
     }
 
+    #[\Override]
     public function render(): string
     {
         return $this->getName();
